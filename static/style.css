@@ -1,0 +1,130 @@
+.header {   
+    background-image:url('/static/header.png');}.body {background-image:url('/static/body.png'); }.footer {background-image:url('/static/footer.png');}.box-plate {
+    border: 0px;
+    box-shadow: 0 0 0px hsla(0, 0%, 100%, 0);
+    padding: 20px;background-color: white;
+} a.transition-button.active {
+      -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility!important;
+    -webkit-font-smoothing: antialiased!important;
+    -webkit-box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    text-decoration: none;
+    user-select: none;
+    float: left;
+    width: 50%;
+    display: block;
+    font-size: 14px;
+    font-weight: 900;
+    font-style: normal;
+    text-align: center;
+    line-height: 40px;
+    transition: all ease-in-out .2s;
+    border-radius: 5px;
+    background: #fcb000;
+    color: #fff;
+}a.transition-button {
+      -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility!important;
+    -webkit-font-smoothing: antialiased!important;
+    -webkit-box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    text-decoration: none;
+    user-select: none;
+    float: left;
+    width: 50%;
+    display: block;
+    font-size: 14px;
+    font-weight: 900;
+    font-style: normal;
+    color: #a8a6a6;
+    text-align: center;
+    line-height: 40px;
+    transition: all ease-in-out .2s;
+    border-radius: 5px;
+}input.textbox-input.input-pad.ng-untouched.ng-pristine.ng-valid {
+      -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased!important;
+    user-select: none;
+    -webkit-box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    resize: none;
+    -webkit-appearance: none;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 2px 2px 22px #434b5980;
+    font-family: Roboto;
+    font-size: 13px;
+    line-height: normal;
+    width: 100%;
+    border: solid 1px transparent;
+    color: #181818!important;
+    height: 50px;
+    padding: 16.5px 45px 16.5px 12px;
+}@font-face {
+    font-family: 'Roboto';
+    src: url('/static/Roboto-Black.b4556791e2a9e005.woff2') format('woff2'),
+         url('/static/Roboto-Black.woff') format('woff'); /* Ayrıca .woff formatını da ekleyebilirsiniz, opsiyonel */
+    font-weight: 900; /* Black için ağırlık */
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('/static/Roboto-Bold.2a63183e6dff7d00.woff2') format('woff2'),
+         url('/static/Roboto-Bold.woff') format('woff'); /* Ayrıca .woff formatını da ekleyebilirsiniz, opsiyonel */
+    font-weight: 700; /* Bold için ağırlık */
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('/static/Roboto-Regular.4e7449338f3a9fee.woff2') format('woff2'),
+         url('/static/Roboto-Regular.woff') format('woff'); /* Ayrıca .woff formatını da ekleyebilirsiniz, opsiyonel */
+    font-weight: 400; /* Regular için ağırlık */
+}body {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+h1 {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+p {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}a.forgot-password {
+    font-family: Roboto;
+    font-size: 11px;
+    font-weight: 900;
+    color: #fcb000!important;
+    margin: 10px 0;
+    display: inline-block;
+}.form-group button {
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased!important;
+    -webkit-box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    user-select: none;
+    font-family: Roboto,sans-serif;
+    padding: 0!important;
+    cursor: pointer;
+    border-radius: 8px;
+    border: solid 2px #131313!important;
+    text-align: center;
+    display: block;
+    min-height: 40px;
+    margin: 5px 0;
+    background-color: #131313!important;
+    color: #fbfbfa;
+    height: 49px;
+    line-height: 47px;
+    font-size: 13px;
+    font-weight: 900;
+    width: 100%;
+}

